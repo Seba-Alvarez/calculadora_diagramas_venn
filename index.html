@@ -31,6 +31,36 @@
     </div>
   </div>
 
+  <!-- Botón de glosario -->
+<button id="toggle-glossary" title="Mostrar/Ocultar Glosario">&#x25B6;</button>
+
+<!-- Panel lateral del glosario -->
+<div id="glossary-panel">
+  <table>
+    <caption>Glosario de símbolos de conjuntos</caption>
+    <thead>
+      <tr><th>Símbolo</th><th>Significado</th><th>Explicación</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>#</td><td>Cardinalidad</td><td>La cantidad de elementos que tiene un conjunto finito.</td></tr>
+      <tr><td>∪</td><td>Unión</td><td>Juntar todo lo que hay en A y B.</td></tr>
+      <tr><td>∩</td><td>Intersección</td><td>Solo lo que A y B tienen en común.</td></tr>
+      <tr><td>∅</td><td>Conjunto vacío</td><td>Caja que no tiene nada o conjunto sin elementos.</td></tr>
+      <tr><td>A = {∅}</td><td>Conjunto con 1 elemento</td><td>Que es el elemento vacío.</td></tr>
+      <tr><td>A̅ o Aᶜ</td><td>Complemento de A</td><td>Conjunto de todos los elementos en U que no están en A.</td></tr>
+      <tr><td>U</td><td>Conjunto universal</td><td>Todo lo que existe en el “mundo” de conjuntos.</td></tr>
+      <tr><td>⊆</td><td>Subconjunto</td><td>Todo lo que está en A también está en B.</td></tr>
+      <tr><td>⊂</td><td>Subconjunto propio</td><td>Todo de A está en B, pero A ≠ B.</td></tr>
+      <tr><td>⊇</td><td>Superconjunto</td><td>A tiene todo lo que tiene B y más.</td></tr>
+      <tr><td>⊃</td><td>Superconjunto propio</td><td>A tiene todo lo que tiene B y más cosas.</td></tr>
+      <tr><td>△ ó ⊕</td><td>Diferencia simétrica</td><td>Elementos en A o en B, pero no en ambos.</td></tr>
+      <tr><td>A - B</td><td>Restar conjuntos</td><td>Elementos que están en A pero no en B.</td></tr>
+      <tr><td>|A| + |B|</td><td>Suma de cardinalidades</td><td>Cantidad de elementos en A más en B.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+
 <script src="libs/d3.min.js"></script>
 <script src="libs/venn.js"></script>
 <script src="scripts.js"></script>

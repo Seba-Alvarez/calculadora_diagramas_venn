@@ -295,3 +295,11 @@ function evaluateExpression() {
     console.error(e);
   }
 }
+
+const toggleBtn = document.getElementById('toggle-glossary');
+const glossaryPanel = document.getElementById('glossary-panel');
+
+toggleBtn.addEventListener('click', () => {
+  glossaryPanel.classList.toggle('active');
+  toggleBtn.classList.toggle('active');
+});

@@ -116,3 +116,73 @@ h1::after {
   background-color: #f8f8f8;
   border-radius: 6px;
 }
+
+/* Botón para mostrar/ocultar glosario */
+#toggle-glossary {
+  position: fixed;
+  top: 20px;
+  left: 10px;
+  z-index: 1100;
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+/* Panel lateral - oculto inicialmente fuera de la vista */
+#glossary-panel {
+  position: fixed;
+  top: 0;
+  left: -380px; /* ancho negativo para ocultar */
+  width: 300px;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.25);
+  overflow-y: hidden; /* ocultar scroll si está cerrado */
+  padding: 20px;
+  z-index: 1099;
+  transition: left 0.3s ease;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+#glossary-panel.active {
+  left: 0;
+  overflow-y: auto; /* activar scroll solo cuando está abierto */
+}
+
+
+/* Cambia la flecha cuando el panel está abierto */
+#toggle-glossary.active {
+  transform: translateX(300px) rotate(180deg);
+}
+
+/* Tabla dentro del glosario */
+#glossary-panel table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#glossary-panel caption {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+#glossary-panel th, #glossary-panel td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+#glossary-panel th {
+  background-color: #f0f0f0;
+}
+
