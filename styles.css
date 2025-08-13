@@ -1,0 +1,118 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: #fff;
+  padding: 25px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Título principal */
+h1 {
+  text-align: center;
+  font-size: 2.2em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+  position: relative;
+  display: block;
+  padding-bottom: 10px;
+}
+
+h1::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: #4a90e2;
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* Barra de expresión */
+.expression-bar {
+  font-size: 1.5em;
+  padding: 10px;
+  background-color: #fdfdfd;
+  margin-bottom: 20px;
+  min-height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+/* Contenedor de botones */
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Botones de símbolos */
+.button-container button:not(.action-button) {
+  background-color: #e0e0e0;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button-container button:not(.action-button):hover {
+  background-color: #d5d5d5;
+}
+
+/* Botones de acción (borrar, calcular, etc) */
+.button-container .action-button {
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+.button-container .action-button:hover {
+  background-color: #357ab8;
+  transform: translateY(-2px);
+}
+
+.button-container .action-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor del diagrama */
+.diagram-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Imagen del diagrama */
+.diagram-container img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 400px;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  border-radius: 6px;
+}

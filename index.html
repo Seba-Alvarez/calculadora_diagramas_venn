@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculadora Diagramas de Venn</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Calculadora Diagramas de Venn</h1>
+
+    <div class="expression-bar" id="expressionBar" contenteditable="true" spellcheck="false"></div>
+
+    <div class="button-container">
+      <button onclick="appendSymbol('A')">A</button>
+      <button onclick="appendSymbol('B')">B</button>
+      <button onclick="appendSymbol('C')">C</button>
+      <button onclick="appendSymbol('∩')">∩</button>
+      <button onclick="appendSymbol('∪')">∪</button>
+      <button onclick="appendSymbol('-')">-</button>
+      <button onclick="appendSymbol('ᶜ')">ᶜ</button>
+      <button onclick="appendSymbol('△')">△</button>
+      <button onclick="clearExpression()" class="action-button">Limpiar</button>
+      <button onclick="evaluateExpression()" class="action-button">Dibujar</button>
+    </div>
+
+    <div class="diagram-container">
+      <div id="venn"></div>
+    </div>
+  </div>
+
+<script src="libs/d3.min.js"></script>
+<script src="libs/venn.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
