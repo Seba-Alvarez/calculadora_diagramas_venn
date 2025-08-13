@@ -173,6 +173,20 @@ function drawVennDiagram(exprResultSet) {
     .datum(setsData)
     .call(chart);
 
+    console.log("Pintando regiones:");
+  d3.select("#venn").selectAll("g").each(function(d) {
+    console.log(d.sets);
+  });
+
+    d3.select("#venn").selectAll("path")
+    .style("fill", "#ddd")
+    .style("fill-opacity", 1)
+    .style("stroke", "black")
+    .style("stroke-width", 2);
+
+
+
+
   // Ahora pintamos las regiones amarillas que estén dentro del conjunto resultado:
 /*
 d3.select("#venn").selectAll("g")
@@ -226,24 +240,20 @@ d3.select("#venn").selectAll("g")
 
   d3.select("#venn").selectAll("g")
   .filter(d => {
-    // Convertimos el array d.sets a un Set ordenado como string: 'A', 'AB', etc.
-    const setsKey = new Set(d.sets);
-    let matchedKey = null;
+    const setsKey = d.sets.slice().sort().join('');
+    const regionElems = regionesDisjuntas[setsKey];
 
-    for (const key in regionesDisjuntas) {
-      const keySet = new Set(key.split(''));
-      if (keySet.size === setsKey.size && [...keySet].every(s => setsKey.has(s))) {
-        matchedKey = key;
-        break;
-      }
-    }
+    if (!regionElems) return false;
 
-    const regionElems = matchedKey ? regionesDisjuntas[matchedKey] : null;
-    return regionElems && [...regionElems].some(x => exprResultSet.has(x));
+    const interseccion = new Set([...regionElems].filter(x => exprResultSet.has(x)));
+    
+    console.log(`Región ${setsKey}: tamaño región ${regionElems.size}, tamaño intersección ${interseccion.size}`);
+
+    return interseccion.size === regionElems.size;
   })
-  .select("path")
-  .style("fill", "#ffcc00")
-  .style("fill-opacity", 0.8);
+   .select("path")
+    .style("fill", "#ffcc00")
+    .style("fill-opacity", 1);
 
 
 }
