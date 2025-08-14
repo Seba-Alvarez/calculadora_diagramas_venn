@@ -184,40 +184,7 @@ function drawVennDiagram(exprResultSet) {
     .style("stroke", "black")
     .style("stroke-width", 2);
 
-
-
-
-  // Ahora pintamos las regiones amarillas que estén dentro del conjunto resultado:
-/*
-d3.select("#venn").selectAll("g")
-  .filter(d => {
-    let regionSet = null;
-    switch (d.sets.length) {
-      case 1:
-        if (d.sets[0] === 'A') regionSet = SET_A;
-        else if (d.sets[0] === 'B') regionSet = SET_B;
-        else if (d.sets[0] === 'C') regionSet = SET_C;
-        break;
-      case 2:
-        if (d.sets.includes('A') && d.sets.includes('B')) regionSet = intersection(SET_A, SET_B);
-        else if (d.sets.includes('A') && d.sets.includes('C')) regionSet = intersection(SET_A, SET_C);
-        else if (d.sets.includes('B') && d.sets.includes('C')) regionSet = intersection(SET_B, SET_C);
-        break;
-      case 3:
-        regionSet = intersection(SET_A, SET_B, SET_C);
-        break;
-    }
-
-    // CAMBIO: pintar región si al menos un elemento pertenece al resultado
-    return regionSet && [...regionSet].some(x => exprResultSet.has(x));
-  })
-  .select("path")
-  .style("fill", "#ffcc00")
-  .style("fill-opacity", 0.8);
-*/
-
-// Primero: definimos las 7 regiones disjuntas del diagrama de Venn
-
+    // función actual para crear sets y dibujar los diagramas
 const regionesDisjuntas = {
   'A': difference(SET_A, SET_B, SET_C),
   'B': difference(SET_B, SET_A, SET_C),
@@ -227,16 +194,6 @@ const regionesDisjuntas = {
   'BC': difference(intersection(SET_B, SET_C), SET_A),
   'ABC': intersection(SET_A, SET_B, SET_C)
 };
-
-// Luego: seleccionamos y pintamos las regiones que tengan al menos un elemento del resultado
-/*
-d3.select("#venn").selectAll("g")
-  .filter(d => {
-    const key = d.sets.sort().join('');
-    const regionElems = regionesDisjuntas[key];
-    return regionElems && [...regionElems].some(x => exprResultSet.has(x));
-  })
-  */
 
   d3.select("#venn").selectAll("g")
   .filter(d => {
